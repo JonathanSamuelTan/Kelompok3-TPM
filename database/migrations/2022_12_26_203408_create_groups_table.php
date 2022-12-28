@@ -38,4 +38,10 @@ return new class extends Migration
     {
         return $this->hasMany(leaders::class);
     }
+
+    public function members()
+    {
+        return $this->hasMany(members::class);
+    }
+
 };
