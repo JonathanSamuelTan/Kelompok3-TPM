@@ -33,4 +33,9 @@ return new class extends Migration
     {
         Schema::dropIfExists('groups');
     }
+
+    public function leaders()
+    {
+        return $this->hasMany(leaders::class);
+    }
 };
