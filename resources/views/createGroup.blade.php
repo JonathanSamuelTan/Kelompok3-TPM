@@ -8,11 +8,21 @@
     @csrf
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Group Name</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="groupName">
-    </div>
+        <input type="text" class="form-control @error('groupName') is-invalid @enderror" id="exampleInputEmail1" aria-describedby="emailHelp" name="groupName">
+            @error('groupName')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
     <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+        <input type="password" class="form-control @error('password') is-invalid @enderror" id="exampleInputPassword1" name="password">
+            @error('password')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password Confirmation</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" name="password_confirmation">
     </div>
     <div class="mb-3 form-check">
         <input type="radio" class="form-check-input" id="exampleCheck1" name="binusian" value="0">

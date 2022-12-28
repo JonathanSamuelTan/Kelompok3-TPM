@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->boolean('binusian');
             $table->boolean('verfStatus');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

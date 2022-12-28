@@ -18,5 +18,10 @@ class Group extends Model
         'verfStatus' => 0
     ];
 
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
     use HasFactory;
 }
