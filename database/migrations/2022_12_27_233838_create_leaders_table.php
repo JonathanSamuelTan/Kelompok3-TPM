@@ -38,9 +38,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('leaders');
     }
-
-    public function group()
-    {
-        return $this->belongsTo(groups::class);
-    }
 };

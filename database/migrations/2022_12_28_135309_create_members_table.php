@@ -24,7 +24,7 @@ return new class extends Migration
             $table->date("birthDate");
             $table->string("memberCV");
             $table->string("memberFlazz");
-            $table->integer('groupID');
+            $table->unsignedBigInteger('groupID');
             $table->foreign('groupID')->references('id')->on('groups');
             $table->timestamps();
         });
@@ -38,10 +38,5 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('members');
-    }
-
-    public function group()
-    {
-        return $this->belongsTo(groups::class);
     }
 };

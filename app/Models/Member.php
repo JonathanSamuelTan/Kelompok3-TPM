@@ -23,4 +23,9 @@ class Members extends Model
         'memberFlazz',
         'groupID',
     ];
+
+    public function groups()
+    {
+        return $this->belongsTo(Group::class);
+    }
 }

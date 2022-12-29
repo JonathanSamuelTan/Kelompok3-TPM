@@ -23,5 +23,15 @@ class Group extends Model
         'remember_token',
     ];
 
+    public function leaders()
+    {
+        return $this->hasMany(Leader::class);
+    }
+
+    public function members()
+    {
+        return $this->hasMany(Member::class);
+    }
+
     use HasFactory;
 }

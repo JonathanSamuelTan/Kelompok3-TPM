@@ -24,6 +24,11 @@ class Leader extends Model
         'leaderFlazz' => NULL,
         'leaderID' => NULL
     ];
-    
+
+    public function groups()
+    {
+        return $this->belongsTo(Group::class);
+    }
+
     use HasFactory;
 }
