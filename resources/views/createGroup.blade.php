@@ -25,8 +25,12 @@
         <input type="password" class="form-control" id="exampleInputPassword1" name="password_confirmation">
     </div>
     <div class="mb-3 form-check">
-        <input type="radio" class="form-check-input" id="exampleCheck1" name="binusian" value="0">
+        <input type="radio" class="form-check-input" id="exampleCheck1" name="binusian" value="1">
         <label class="form-check-label" for="exampleCheck1">Binusian</label>
+    </div>
+    <div class="mb-3 form-check">
+        <input type="radio" class="form-check-input" id="exampleCheck1" name="binusian" value="0">
+        <label class="form-check-label" for="exampleCheck1">Not Binusian</label>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

@@ -25,7 +25,7 @@ class MemberController extends Controller
     public function create()
     {
         // ini mana yg bener ?
-        
+
         // $member = Members::all();
         // return view('createMember', compact('member'));
 
@@ -52,7 +52,7 @@ class MemberController extends Controller
             'memberFlazz' => 'required',
         ]);
 
-        Members::create([
+        Member::create([
             'memberFullName' => $request->memberFullName,
             'memberEmail' => $request->memberEmail,
             'memberWA' => $request->memberWA,

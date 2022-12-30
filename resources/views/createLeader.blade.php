@@ -56,8 +56,8 @@
 
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Birth Date</label>
-        <input type="date" class="form-control @error('birtDate') is-invalid @enderror" id="exampleInputEmail1" aria-describedby="emailHelp" name="birtDate">
-            @error('birtDate')
+        <input type="date" class="form-control @error('birthDate') is-invalid @enderror" id="exampleInputEmail1" aria-describedby="emailHelp" name="birthDate">
+            @error('birthDate')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
     </div>
