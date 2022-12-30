@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Leader;
+use Illuminate\Support\Facades\Auth;
 
 class LeaderController extends Controller
 {
@@ -34,6 +35,8 @@ class LeaderController extends Controller
         $flazz = $request->leaderName . '_Flazz_' . $extensionFlazz;
         $request->file('leaderFlazz')->storeAs('/public/Flazz', $flazz);
 
+        $group_id = Auth::id();
+
         Leader::create([
             'leaderName' => $request->leaderName,
             'leaderEmail' => $request->leaderEmail,
@@ -43,7 +46,8 @@ class LeaderController extends Controller
             'birthPlace' => $request->birthPlace,
             'birthDate' => $request->birthDate,
             'leaderCV' => $cv,
-            'leaderFlazz' => $flazz
+            'leaderFlazz' => $flazz,
+            'group_id' => $group_id
         ]);
         return redirect('/home');
     }

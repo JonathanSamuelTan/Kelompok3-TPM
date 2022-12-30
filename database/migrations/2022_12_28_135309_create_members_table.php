@@ -24,8 +24,8 @@ return new class extends Migration
             $table->date("birthDate");
             $table->string("memberCV");
             $table->string("memberFlazz");
-            $table->unsignedBigInteger('groupID');
-            $table->foreign('groupID')->references('id')->on('groups');
+            $table->foreignId('group_id');
+            $table->foreign('group_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

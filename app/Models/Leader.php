@@ -16,7 +16,8 @@ class Leader extends Model
         'birthPlace',
         'birthDate',
         'leaderCV',
-        'leaderFlazz'
+        'leaderFlazz',
+        'group_id'
     ];
 
     // protected $attributes = [

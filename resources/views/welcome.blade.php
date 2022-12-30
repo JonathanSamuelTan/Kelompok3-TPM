@@ -12,7 +12,10 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="create-group">Ceate Group</a>
+            <a class="nav-link active" aria-current="page" href="register">Register Group</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="login">Login Group</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="create-leader">Ceate Leader</a>
