@@ -24,8 +24,6 @@ class LeaderController extends Controller
      */
     public function create()
     {
-        // $leader= Leaders::all();
-        // return view('createLeader', compact('leader'));
         return view('createLeader');
     }
 
@@ -38,28 +36,37 @@ class LeaderController extends Controller
     public function store(Request $request)
     {
         $validate = $request->validate([
-            'leaderFullName' => 'required',
+            'leaderName' => 'required',
             'leaderEmail' => 'required',
-            'leaderWA' => 'required',
+            'leaderWA' => 'required | numeric | min:10 ',
             'leaderLine' => 'required',
-            'leaderGithub' => 'required',
+            'leaderGithub' => 'required | url',
             'birthPlace' => 'required',
             'birthDate' => 'required',
             'leaderCV' => 'required',
             'leaderFlazz' => 'required',
         ]);
 
+        $extensionCV = $request->file('leaderCV')->getClientOriginalExtension();
+        $cv = $request->leaderName . '.CV.' . $extensionCV;
+        $request->file('leaderCV')->storeAs('/public/CV', $cv);
+
+        $extensionFlazz = $request->file('leaderFlazz')->getClientOriginalExtension();
+        $flazz = $request->leaderName . '.Flazz.' . $extensionFlazz;
+        $request->file('leaderFlazz')->storeAs('/public/Flazz', $flazz);
+        
         Leaders::create([
-            'leaderFullName' => $request->leaderFullName,
+            'leaderName' => $request->leaderName,
             'leaderEmail' => $request->leaderEmail,
             'leaderWA' => $request->leaderWA,
             'leaderLine' => $request->leaderLine,
             'leaderGithub' => $request->leaderGithub,
             'birthPlace' => $request->birthPlace,
             'birthDate' => $request->birthDate,
-            'leaderCV' => $request->leaderCV,
-            'leaderFlazz' => $request->leaderFlazz,
+            'leaderCV' => $cv,
+            'leaderFlazz' => $flazz
         ]);
+        return redirect('/home')->with('status', 'Data Leader Berhasil Ditambahkan!');
     }
 
     /**

@@ -24,7 +24,6 @@ return new class extends Migration
             $table->date("birthDate");
             $table->string("leaderCV");
             $table->string("leaderFlazz");
-            $table->string("leaderID");
             $table->timestamps();
         });
     }

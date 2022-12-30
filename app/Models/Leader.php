@@ -16,13 +16,11 @@ class Leader extends Model
         'birthPlace',
         'birthDate',
         'leaderCV',
-        'leaderFlazz',
-        'leaderID'
+        'leaderFlazz'
     ];
 
     protected $attributes = [
-        'leaderFlazz' => NULL,
-        'leaderID' => NULL
+        'leaderFlazz' => NULL
     ];
 
     public function groups()

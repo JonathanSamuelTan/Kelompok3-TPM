@@ -16,9 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/home', [GroupController::class, 'index']);
-Route::get('create-group', [GroupController::class, 'create']);
+Route::get('create-group', [GroupController::class, 'create'])-> name('create-group');
 Route::post('store-group', [GroupController::class, 'store']);
 Route::get('create-member', [MemberController::class, 'create']);
 Route::post('store-member', [MemberController::class, 'store']);
-Route::get('create-Leader', [LeaderController::class, 'create']);
-Route::post('store-Leader', [LeaderController::class, 'store']);
+// Route::get('create-leader', [LeaderController::class, 'create'])-> name('create-leader'); // gatau knp kl pake ini malah error
+Route::get('create-leader', [App\Http\Controllers\LeaderController::class, 'create'])-> name('create-leader');
+Route::post('store-leader', [App\Http\Controllers\LeaderController::class, 'store'])-> name('store-leader');
