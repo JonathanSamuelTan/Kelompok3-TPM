@@ -4,7 +4,7 @@
 
 @section('body')
 
-<form action="/store-group" method="POST" enctype="multipart/form-data">
+<form action="/store-leader" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Full Name</label>

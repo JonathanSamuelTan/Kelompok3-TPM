@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\LeaderController;
+use App\Http\Controllers\MemberController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,4 +24,4 @@ Route::get('create-member', [MemberController::class, 'create']);
 Route::post('store-member', [MemberController::class, 'store']);
 // Route::get('create-leader', [LeaderController::class, 'create'])-> name('create-leader'); // gatau knp kl pake ini malah error
 Route::get('create-leader', [App\Http\Controllers\LeaderController::class, 'create'])-> name('create-leader');
-Route::post('store-leader', [App\Http\Controllers\LeaderController::class, 'store'])-> name('store-leader');
+Route::post('/store-leader', [App\Http\Controllers\LeaderController::class, 'store'])-> name('store-leader');

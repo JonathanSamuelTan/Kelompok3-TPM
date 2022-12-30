@@ -55,7 +55,7 @@ class LeaderController extends Controller
         $flazz = $request->leaderName . '.Flazz.' . $extensionFlazz;
         $request->file('leaderFlazz')->storeAs('/public/Flazz', $flazz);
         
-        Leaders::create([
+        Leader::create([
             'leaderName' => $request->leaderName,
             'leaderEmail' => $request->leaderEmail,
             'leaderWA' => $request->leaderWA,
@@ -66,7 +66,7 @@ class LeaderController extends Controller
             'leaderCV' => $cv,
             'leaderFlazz' => $flazz
         ]);
-        return redirect('/home')->with('status', 'Data Leader Berhasil Ditambahkan!');
+        return redirect('welcome');
     }
 
     /**

@@ -19,9 +19,9 @@ class Leader extends Model
         'leaderFlazz'
     ];
 
-    protected $attributes = [
-        'leaderFlazz' => NULL
-    ];
+    // protected $attributes = [
+    //     'leaderFlazz' => NULL
+    // ];
 
     public function groups()
     {
