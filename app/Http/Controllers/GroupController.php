@@ -41,4 +41,9 @@ class GroupController extends Controller
 
         return redirect('/home');
     }
+
+    public function index () {
+        $groups = Group::all();
+        return view('welcome', compact('groups'));
+    }
 }

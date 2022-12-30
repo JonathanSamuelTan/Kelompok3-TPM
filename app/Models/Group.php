@@ -23,9 +23,9 @@ class Group extends Model
         'remember_token',
     ];
 
-    public function leaders()
+    public function leader()
     {
-        return $this->hasMany(Leader::class);
+        return $this->hasOne(leader::class);
     }
 
     public function members()

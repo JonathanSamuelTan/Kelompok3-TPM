@@ -14,10 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', function () {
-    return view('welcome');
-});
 
+Route::get('/home', [GroupController::class, 'index']);
 Route::get('create-group', [GroupController::class, 'create']);
 Route::post('store-group', [GroupController::class, 'store']);
 Route::get('create-member', [MemberController::class, 'create']);
