@@ -43,18 +43,41 @@
     </div>
 </nav>
 
-<div class="row">
-    @foreach ($groups as $group)
-    <div class="col-sm-3">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">{{$group->groupName}}</h5>
-          <p class="card-text">{{$group->verfStatus}}</p>
-          <a href="show-leader/{{$group->id}}" class="btn btn-primary">Leader</a>
-          <a href="#" class="btn btn-primary">Member</a>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Leader Detail</h1>
+            <table class="table table-bordered">
+                <tr>
+                    <th>Leader Name</th>
+                    <td>{{ $leader->leaderName }}</td>
+                </tr>
+                <tr>
+                    <th>Leader Email</th>
+                    <td>{{ $leader->leaderEmail }}</td>
+                </tr>
+                <tr>
+                    <th>WA Number</th>
+                    <td>{{ $leader->leaderWA }}</td>
+                </tr>
+                <tr>
+                    <th>Line</th>
+                    <td>{{ $leader->leaderLine }}</td>
+                </tr>
+                <tr>
+                    <th>Github / Gitlab</th>
+                    <td>{{ $leader->leaderGithub }}</td>
+                </tr>
+                <tr>
+                  <th>Birth Place</th>
+                  <td>{{ $leader->birthPlace }}</td>
+                </tr>
+                <tr>
+                  <th>Birth Date</th>
+                  <td>{{ $leader->birthDate }}</td>
+                </tr>
+            </table>
         </div>
-      </div>
     </div>
-    @endforeach
 </div>
 @endsection

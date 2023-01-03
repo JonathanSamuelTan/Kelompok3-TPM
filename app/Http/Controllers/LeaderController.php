@@ -51,4 +51,10 @@ class LeaderController extends Controller
         ]);
         return redirect('/home');
     }
+
+    public function show($id)
+    {
+        $leader = Leader::findOrFail($id);
+        return view('leaderDetail', compact('leader'));
+    }
 }

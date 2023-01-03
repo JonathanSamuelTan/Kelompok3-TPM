@@ -24,8 +24,6 @@ class MemberController extends Controller
      */
     public function create()
     {
-        // ini mana yg bener ?
-
         // $member = Members::all();
         // return view('createMember', compact('member'));
 

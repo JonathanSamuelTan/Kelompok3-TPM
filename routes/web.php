@@ -31,3 +31,4 @@ Route::post('store-member', [MemberController::class, 'store']);
 
 Route::get('create-leader', [LeaderController::class, 'create'])-> name('create-leader');
 Route::post('store-leader', [LeaderController::class, 'store'])-> name('store-leader');
+Route::get('show-leader/{id}', [LeaderController::class, 'show']);
