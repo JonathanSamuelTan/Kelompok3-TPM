@@ -14,8 +14,8 @@
 
         <!-- Email Address -->
         <div>
-            <x-input-label for="email" :value="__('Name')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="name" :value="old('name')" required autofocus />
+            <x-input-label for="email" :value="__('Group Name')" />
+            <x-text-input id="email" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
