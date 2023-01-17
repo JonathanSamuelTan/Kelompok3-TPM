@@ -10,7 +10,13 @@ class MembersController extends Controller
 {
     public function create()
     {
-        return view('registMember');
+        $group_id = Auth::id();
+        $member = Member::where('group_id', $group_id)->get();
+        if (count($member) >= 3) {
+            return redirect('dashboard');
+        } else {
+            return view('registMember');
+        }
     }
 
     public function store(Request $request)
@@ -36,7 +42,6 @@ class MembersController extends Controller
         // $request->file('leaderFlazz')->storeAs('/public/strorage/Flazz', $flazz);
 
         $group_id = Auth::id();
-
         Member::create([
             'memberFullName' => $request->memberFullName,
             'memberEmail' => $request->memberEmail,
@@ -57,4 +62,5 @@ class MembersController extends Controller
         $member = Member::findOrFail($id);
         return view('dashboard', compact('member'));
     }
+
 }
