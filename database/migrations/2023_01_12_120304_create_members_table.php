@@ -22,8 +22,8 @@ return new class extends Migration
             $table->string("memberGithub");
             $table->string("birthPlace");
             $table->date("birthDate");
-            $table->string("memberCV");
-            $table->string("memberFlazz");
+            // $table->string("memberCV");
+            // $table->string("memberFlazz");
             $table->foreignId('group_id');
             $table->foreign('group_id')->references('id')->on('users');
             $table->timestamps();

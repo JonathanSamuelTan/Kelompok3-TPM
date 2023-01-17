@@ -4,51 +4,38 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Member;
+use Illuminate\Support\Facades\Auth;
 
-class MemberController extends Controller
+class MembersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        // $member = Members::all();
-        // return view('createMember', compact('member'));
-
-        return view('createMember');
+        return view('registMember');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        $validate = $request->validate([
-            'memberFullName' => 'required',
-            'memberEmail' => 'required',
-            'memberWA' => 'required',
-            'memberLine' => 'required',
-            'memberGithub' => 'required',
-            'birthPlace' => 'required',
-            'birthDate' => 'required',
-            'memberCV' => 'required',
-            'memberFlazz' => 'required',
-        ]);
+        // $validate = $request->validate([
+        //     'leaderName' => 'required',
+        //     'leaderEmail' => 'required|email',
+        //     'leaderWA' => 'required|numeric|min:10 ',
+        //     'leaderLine' => 'required',
+        //     'leaderGithub' => 'required|url',
+        //     'birthPlace' => 'required',
+        //     'birthDate' => 'required|date',
+        //     'leaderCV' => 'required',
+        //     'leaderFlazz' => 'required',
+        // ]);
+
+        // $extensionCV = $request->file('leaderCV')->getClientOriginalExtension();
+        // $cv = $request->leaderName . '_CV_' . $extensionCV;
+        // $request->file('leaderCV')->storeAs('/public/storage/CV', $cv);
+
+        // $extensionFlazz = $request->file('leaderFlazz')->getClientOriginalExtension();
+        // $flazz = $request->leaderName . '_Flazz_' . $extensionFlazz;
+        // $request->file('leaderFlazz')->storeAs('/public/strorage/Flazz', $flazz);
+
+        $group_id = Auth::id();
 
         Member::create([
             'memberFullName' => $request->memberFullName,
@@ -58,53 +45,16 @@ class MemberController extends Controller
             'memberGithub' => $request->memberGithub,
             'birthPlace' => $request->birthPlace,
             'birthDate' => $request->birthDate,
-            'memberCV' => $request->memberCV,
-            'memberFlazz' => $request->memberFlazz,
+            // 'leaderCV' => $cv,
+            // 'leaderFlazz' => $flazz,
+            'group_id' => $group_id
         ]);
+        return redirect('dashboard');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $member = Member::findOrFail($id);
+        return view('dashboard', compact('member'));
     }
 }

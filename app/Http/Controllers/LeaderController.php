@@ -55,6 +55,6 @@ class LeaderController extends Controller
     public function show($id)
     {
         $leader = Leader::findOrFail($id);
-        return view('leaderDetail', compact('leader'));
+        return view('dashboard', compact('leader'));
     }
 }

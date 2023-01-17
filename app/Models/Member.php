@@ -5,12 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Members extends Model
+class Member extends Model
 {
-    use HasFactory;
-
-    protected $table = 'members';
-    protected $primaryKey = 'id';
     protected $fillable = [
         'memberFullName',
         'memberEmail',
@@ -19,9 +15,9 @@ class Members extends Model
         'memberGithub',
         'birthPlace',
         'birthDate',
-        'memberCV',
-        'memberFlazz',
-        'groupID',
+        // 'memberCV',
+        // 'memberFlazz',
+        'group_id',
     ];
 
     public function groups()

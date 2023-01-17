@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LeaderController;
+use App\Http\Controllers\MembersController;
+use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +33,8 @@ Route::middleware('auth')->group(function () {
 
 Route::get('create-leader', [LeaderController::class, 'create'])-> name('create-leader');
 Route::post('store-leader', [LeaderController::class, 'store'])-> name('store-leader');
+Route::get('show-leader/{id}', [LeaderController::class, 'show']);
+
+Route::get('create-member', [MembersController::class, 'create'])-> name('create-member');
+Route::post('store-member', [MembersController::class, 'store'])-> name('store-member');
 require __DIR__.'/auth.php';
