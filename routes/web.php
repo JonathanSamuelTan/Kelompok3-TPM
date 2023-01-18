@@ -21,9 +21,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     //get id from auth
+//     $id = auth()->user()->id;
+//     //get leader data base on id
+//     $leader = Leader::findOrFail($id);
+//     return view('dashboard',compact('leader'));
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -33,7 +37,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('create-leader', [LeaderController::class, 'create'])-> name('create-leader');
 Route::post('store-leader', [LeaderController::class, 'store'])-> name('store-leader');
-Route::get('show-leader/{id}', [LeaderController::class, 'show']);
+Route::get('/dashboard', [LeaderController::class, 'show'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('create-member', [MembersController::class, 'create'])-> name('create-member');
 Route::post('store-member', [MembersController::class, 'store'])-> name('store-member');

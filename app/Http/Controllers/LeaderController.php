@@ -52,9 +52,11 @@ class LeaderController extends Controller
         return redirect('dashboard');
     }
 
-    public function show($id)
+    public function show()
     {
+        $id = auth()->user()->id;
+        //get leader data base on id
         $leader = Leader::findOrFail($id);
-        return view('dashboard', compact('leader'));
+        return view('dashboard',compact('leader'));
     }
 }
