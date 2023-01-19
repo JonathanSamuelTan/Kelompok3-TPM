@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LeaderController;
 use App\Http\Controllers\MembersController;
+use App\Http\Controllers\adminController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -44,4 +45,10 @@ Route::get('create-member', [MembersController::class, 'create'])
 Route::post('store-member', [MembersController::class, 'store'])
 -> name('store-member')
 -> middleware('auth');
+
+// route for admin dashboard
+Route::get('admin-dashboard', [adminController::class, 'index']);
+
+// route for admin get spesific data base on user id
+Route::get('group-detail/{id}', [adminController::class, 'show']);
 require __DIR__.'/auth.php';
