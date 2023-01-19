@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->boolean('binusian');
             $table->string('verified')->default('unverified');
+            $table->boolean('isAdmin')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

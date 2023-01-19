@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'password',
         'binusian',
+        'isAdmin'
     ];
 
     /**
