@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LeaderController;
 use App\Http\Controllers\MembersController;
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\userDashboardController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -20,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -34,7 +35,7 @@ Route::get('create-leader', [LeaderController::class, 'create'])-> name('create-
 Route::post('store-leader', [LeaderController::class, 'store'])-> name('store-leader')
 -> middleware('auth');
 
-Route::get('/dashboard', [LeaderController::class, 'show'])->middleware(['auth', 'verified'])
+Route::get('/dashboard', [userDashboardController::class, 'show'])->middleware(['auth', 'verified'])
 -> name('dashboard')
 -> middleware('auth');
 
@@ -51,4 +52,7 @@ Route::get('admin-dashboard', [adminController::class, 'index']);
 
 // route for admin get spesific data base on user id
 Route::get('group-detail/{id}', [adminController::class, 'show']);
+
+//route for logout
+Route::get('logout', [adminController::class, 'logout'])->name('logout');
 require __DIR__.'/auth.php';
