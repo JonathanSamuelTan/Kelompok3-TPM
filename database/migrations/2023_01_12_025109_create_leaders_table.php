@@ -25,7 +25,7 @@ return new class extends Migration
             // $table->string("leaderCV");
             // $table->string("leaderFlazz");
             $table->foreignId('group_id');
-            $table->foreign('group_id')->references('id')->on('users');
+            $table->foreign('group_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

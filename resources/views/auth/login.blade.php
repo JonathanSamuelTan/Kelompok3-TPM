@@ -47,11 +47,11 @@
                         <button type="submit" id="login">{{ __('Log in') }}</button>
                     </div>
                 </div>
-        
+
                 <div class="Regis-ulang">
                     <p style="color: #707070
-                    ">Belum memiliki akun?</p> 
-                    <a href="Informastion-Group.html">
+                    ">Belum memiliki akun?</p>
+                    <a href="{{route('register')}}">
                     <p style="color: #0D4C92
                     "> Register disini</p>
                     </a>

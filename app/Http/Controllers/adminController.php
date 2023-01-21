@@ -27,4 +27,20 @@ class adminController extends Controller
         // return view('groupDetail', compact('user'), compact('leader'), compact('member'));
         return view('groupDetail', compact('user', 'leader', 'member'));
     }
+
+    public function delete($id)
+    {
+        User::where("id", $id)->delete();
+
+        return redirect('/admin-dashboard');
+    }
+
+    public function verify($id)
+    {
+        $user = User::find($id);
+
+        $user->update(['verified' => true]);
+
+        return redirect('/admin-dashboard')->with('Success', 'User Verified');
+    }
 }

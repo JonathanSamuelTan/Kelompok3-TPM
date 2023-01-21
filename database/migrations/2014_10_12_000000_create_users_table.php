@@ -20,7 +20,7 @@ return new class extends Migration
             // $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('binusian');
-            $table->string('verified')->default('unverified');
+            $table->boolean('verified')->default(false);
             $table->boolean('isAdmin')->default(false);
             $table->rememberToken();
             $table->timestamps();
