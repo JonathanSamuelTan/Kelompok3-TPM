@@ -56,3 +56,5 @@ Route::get('group-detail/{id}', [adminController::class, 'show']);
 //route for logout
 Route::get('logout', [adminController::class, 'logout'])->name('logout');
 require __DIR__.'/auth.php';
+
+//route for register
